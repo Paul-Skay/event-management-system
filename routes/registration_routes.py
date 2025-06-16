@@ -1,10 +1,10 @@
 from fastapi import APIRouter, status, Form
-from crud.registration import register_crud
-from schemas.registration import RegistrationCreate
-from services.registration import register_service
+from crud.registration_crud import register_crud
+from schemas.registration_schema import RegistrationCreate
+from services.registration_service import registration_service
 
 
-router = APIRouter()
+router = APIRouter(prefix="/registrations", tags=["registrations"])
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
@@ -24,19 +24,19 @@ def get_registration_by_user_id(user_id: int):
 
 @router.put("/{event_id}/attendance", status_code=status.HTTP_200_OK)
 def mark_attendance(user_id: int, event_id: int):
-    return register_service.mark_attendance(user_id, event_id)
+    return registration_service.mark_attendance(user_id, event_id)
 
 
 @router.get("/attendee/{event_id}", status_code=status.HTTP_200_OK)
 def get_attendees_for_an_event(event_id: int):
-    return register_service.get_all_attendance_for_event(event_id)
+    return registration_service.get_all_attendance_for_event(event_id)
 
 
 @router.get("/attendees/all", status_code=status.HTTP_200_OK)
 def get_all_attendees():
-    return register_service.get_all_attendees()
+    return registration_service.get_all_attendees()
 
 
 @router.get("/attendee/event/users", status_code=status.HTTP_200_OK)
 def get_users_who_attended_at_least_one_event():
-    return register_service.get_users_who_attended_at_least_one_event()
+    return registration_service.get_users_who_attended_at_least_one_event()

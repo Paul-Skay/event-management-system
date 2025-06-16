@@ -1,8 +1,8 @@
 from fastapi import APIRouter, status
-from services.speaker import speaker_service
+from services.speaker_service import speaker_service
 
 
-router = APIRouter()
+router = APIRouter(prefix="/speaker", tags=["speaker"])
 
 
 @router.get("/", status_code=status.HTTP_200_OK)

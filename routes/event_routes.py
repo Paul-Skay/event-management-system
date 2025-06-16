@@ -1,9 +1,9 @@
 from fastapi import APIRouter, status, Form
-from schemas.event import EventCreate, EventUpdate
-from crud.event import event_crud
-from services.event import event_service
+from schemas.event_schema import EventCreate, EventUpdate
+from crud.event_crud import event_crud
+from services.event_service import event_service
 
-router = APIRouter()
+router = APIRouter(prefix="/event", tags=["event"])
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)

@@ -1,5 +1,5 @@
 from fastapi import HTTPException, status
-from schemas.user import UserCreate, UserUpdate
+from schemas.user_schema import UserCreate, UserUpdate
 from database import users_db
 from models import User
 

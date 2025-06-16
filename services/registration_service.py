@@ -1,9 +1,9 @@
 from fastapi import HTTPException, status
 from database import registrations_db, users_db
-from schemas.user import User
+from schemas.user_schema import User
 
 
-class RegisterService:
+class RegistrationService:
 
     @staticmethod
     def mark_attendance(user_id: int, event_id: int):
@@ -101,4 +101,4 @@ class RegisterService:
         }
 
 
-register_service = RegisterService()
+registration_service = RegistrationService()

@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 from models import Event
 from database import events_db
-from schemas.event import EventCreate, EventUpdate
+from schemas.event_schema import EventCreate, EventUpdate
 
 
 # CRUD operations for Event management

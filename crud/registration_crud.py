@@ -1,7 +1,7 @@
 from datetime import date
 from fastapi import HTTPException, status
 from models import Registration
-from schemas.registration import RegistrationCreate
+from schemas.registration_schema import RegistrationCreate
 from database import users_db, events_db, registrations_db
 
 

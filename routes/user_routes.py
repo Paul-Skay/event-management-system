@@ -1,9 +1,9 @@
 from fastapi import APIRouter, status, Form
-from schemas.user import UserCreate, UserUpdate
-from services.user import user_service
-from crud.user import user_crud
+from schemas.user_schema import UserCreate, UserUpdate
+from services.user_service import user_service
+from crud.user_crud import user_crud
 
-router = APIRouter()
+router = APIRouter(prefix="/user", tags=["user"])
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
